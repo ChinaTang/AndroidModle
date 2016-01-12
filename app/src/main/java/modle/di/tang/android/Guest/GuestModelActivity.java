@@ -118,10 +118,10 @@ public class GuestModelActivity extends Activity implements GestureDetector.OnGe
             if(x > x_limit || x < -x_limit){
                 if(x > 0){
                     //向右移动
-
+                    from = location.RIGHT.ordinal();
                 }else if(x < 0){
                     //向左移动
-
+                    from = location.LEFT.ordinal();
                 }
             }
         }
@@ -130,15 +130,20 @@ public class GuestModelActivity extends Activity implements GestureDetector.OnGe
             if(y > y_limit || y < -y_limit){
                 if(y > 0){
                     //向下
+                    from = location.TOP.ordinal();
+
 
                 }else if(y < 0 ){
                     //向上
+                    from = location.BOTTOM.ordinal();
+
 
                 }
             }
         }
 
 
+        initPopuWindow();
         return false;
     }
 
@@ -179,7 +184,6 @@ public class GuestModelActivity extends Activity implements GestureDetector.OnGe
     }
 
     private void initPopuWindow(){
-        View popupWindwoView = getLayoutInflater().inflate(R.layout.popup_main, null);
         if(location.LEFT.ordinal() == from || location.RIGHT.ordinal() == from){
             popupWindow.setWidth(screen.widthPixels * (3/4));
             popupWindow.setHeight(screen.heightPixels);
