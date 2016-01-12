@@ -15,6 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="modle.di.tang.android.Guest.GuestModelActivity">
+            <action android:name="modle.di.tang.action"/>
+            <category android:name="modle.di.tang.catage"/>
+        </activity>
     </application>
 
 </manifest>
