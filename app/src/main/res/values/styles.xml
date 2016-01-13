@@ -17,7 +17,12 @@
 
     <style name="AnimationBottomFade">
         <item name="android:windowEnterAnimation">@anim/in_bottomtotop</item>
-        <item name="android:windowExitAnimation">@anim/out_toptobottom</item>
+       <item name="android:windowExitAnimation">@anim/out_toptobottom</item>
     </style>
+    <style name="AnimationTopFade">
+        <item name="android:windowEnterAnimation">@anim/in_toptobottom</item>
+        <item name="android:windowExitAnimation">@anim/out_bottomtotop</item>
+    </style>
+
 
 </resources>
