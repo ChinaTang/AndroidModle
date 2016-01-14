@@ -23,7 +23,7 @@ import java.util.List;
 import modle.di.tang.android.Guest.GuestModelActivity;
 
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity implements View.OnTouchListener {
 
     private ListView listView;
 
@@ -33,7 +33,7 @@ public class MainActivity extends Activity{
 
     private static final String ACTION = "modle.di.tang.action";
 
-    private static final String CATEGORY = "modle.di.tang.catage";
+    private static final String CATEGORY = "modle.di.tang.category";
 
     private static final String TAG = "MainActivity";
 
@@ -45,14 +45,19 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
         getAppResolve();
 
+
+
+        findViewById(R.id.main).setOnTouchListener(this);
+
+
         adapter = new ArrayAdapter<ResolveInfo>(this, 0,
-                activities){
+                activities) {
             @Override
-            public View getView(int postion, View ContentView, ViewGroup parent){
-                if(ContentView == null){
+            public View getView(int postion, View ContentView, ViewGroup parent) {
+                if (ContentView == null) {
                     ContentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, null);
                 }
-                TextView text = (TextView)ContentView.findViewById(R.id.item_list);
+                TextView text = (TextView) ContentView.findViewById(R.id.item_list);
                 text.setText(activities.get(postion).loadLabel(packageManager));
                 return ContentView;
             }
@@ -63,8 +68,8 @@ public class MainActivity extends Activity{
     }
 
 
-    private void initView(){
-        listView = (ListView)findViewById(R.id.main_list);
+    private void initView() {
+        listView = (ListView) findViewById(R.id.main_list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -82,41 +87,60 @@ public class MainActivity extends Activity{
 
     }
 
-    private List<ResolveInfo> getAppResolve(){
-        Intent intent = new Intent();
-        intent.setAction(ACTION);
+    private List<ResolveInfo> getAppResolve() {
+        Intent intent = new Intent(ACTION);
         intent.addCategory(CATEGORY);
         packageManager = getPackageManager();
-        activities = packageManager.queryIntentActivities(intent, 0);
+        activities = packageManager.queryIntentActivities(intent, PackageManager.GET_INTENT_FILTERS);
         Log.e(TAG, activities.toString());
         return activities;
     }
 
-    /**无法执行
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
+    /**
+     * 无法执行
+     *
+     * @Override public boolean onTouchEvent(MotionEvent event){
+     * <p/>
+     * if(MotionEvent.ACTION_DOWN == event.getAction()){
+     * Intent i = new Intent(this, GuestModelActivity.class);
+     * startActivity(i);
+     * Log.e(TAG, "onTouchEvent");
+     * }
+     * Log.e(TAG, "onTouchEvent-return");
+     * return super.onTouchEvent(event);
+     * }
+     **/
 
-        if(MotionEvent.ACTION_DOWN == event.getAction()){
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             Intent i = new Intent(this, GuestModelActivity.class);
-            startActivity(i);
+//            startActivity(i);
             Log.e(TAG, "onTouchEvent");
         }
-        Log.e(TAG, "onTouchEvent-return");
-        return super.onTouchEvent(event);
+        return false;
     }
-    **/
+
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev){
-        if(ev.getAction() == MotionEvent.ACTION_DOWN){
-            Intent i = new Intent(this, GuestModelActivity.class);
-            startActivity(i);
-            Log.e(TAG, "onTouchEvent");
+    public boolean onTouch(View v, MotionEvent event) {
+
+        Log.e("tanglaoban", "SHUAIGE MEINV..................");
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+            Log.e("tanglaoban", "DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e("tanglaoban", "MOVE");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.e("tanglaoban", "UP");
+                break;
+
         }
-        return super.dispatchTouchEvent(ev);
+
+        return false;
     }
-
-
-
-
 }

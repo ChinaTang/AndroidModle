@@ -104,6 +104,7 @@ public class GuestModelActivity extends Activity implements GestureDetector.OnGe
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
         //手指划过屏幕的横向距离
+
         float x = e2.getX() - e1.getX();
         //手指划过屏幕的纵向距离
         float y = e2.getY() - e1.getY();
@@ -151,7 +152,6 @@ public class GuestModelActivity extends Activity implements GestureDetector.OnGe
                 }
             }
         }
-
         return false;
     }
 
