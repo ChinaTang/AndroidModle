@@ -15,12 +15,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="modle.di.tang.android.Guest.GuestModelActivity">
+        <activity android:name="modle.di.tang.android.Guest.GuestModelActivity"
+            android:label="@string/geture">
             <intent-filter>
             <action android:name="modle.di.tang.action" />
 
             <category android:name="modle.di.tang.category" />
             <!--<category android:name="android.intent.category.DEFAULT" />-->
+            </intent-filter>
+        </activity>
+        <activity android:name="modle.di.tang.android.Dialog.DialogActvivty"
+            android:label="@string/dialog">
+            <intent-filter>
+                <action android:name="modle.di.tang.action" />
+
+                <category android:name="modle.di.tang.category" />
             </intent-filter>
         </activity>
     </application>

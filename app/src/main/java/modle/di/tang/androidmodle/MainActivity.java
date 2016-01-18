@@ -23,7 +23,7 @@ import java.util.List;
 import modle.di.tang.android.Guest.GuestModelActivity;
 
 
-public class MainActivity extends Activity implements View.OnTouchListener {
+public class MainActivity extends Activity {
 
     private ListView listView;
 
@@ -45,20 +45,16 @@ public class MainActivity extends Activity implements View.OnTouchListener {
         setContentView(R.layout.activity_main);
         getAppResolve();
 
-
-
-        findViewById(R.id.main).setOnTouchListener(this);
-
-
-        adapter = new ArrayAdapter<ResolveInfo>(this, 0,
-                activities) {
+        adapter = new ArrayAdapter<ResolveInfo>(this, 0, activities) {
             @Override
             public View getView(int postion, View ContentView, ViewGroup parent) {
                 if (ContentView == null) {
                     ContentView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, null);
                 }
                 TextView text = (TextView) ContentView.findViewById(R.id.item_list);
-                text.setText(activities.get(postion).loadLabel(packageManager));
+                // String[] temp = activities.get(postion).activityInfo.toString().split(.);
+                Log.e("Package name = ", activities.get(postion).activityInfo.labelRes + "");
+                text.setText(activities.get(postion).activityInfo.labelRes);
                 return ContentView;
             }
         };
@@ -112,35 +108,34 @@ public class MainActivity extends Activity implements View.OnTouchListener {
      **/
 
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            Intent i = new Intent(this, GuestModelActivity.class);
-//            startActivity(i);
-            Log.e(TAG, "onTouchEvent");
-        }
-        return false;
-    }
+    /**
+     @Override public boolean dispatchTouchEvent(MotionEvent ev) {
+     if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+     Intent i = new Intent(this, GuestModelActivity.class);
+     //            startActivity(i);
+     Log.e(TAG, "onTouchEvent");
+     }
+     return false;
+     }
 
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
+     @Override public boolean onTouch(View v, MotionEvent event) {
 
-        Log.e("tanglaoban", "SHUAIGE MEINV..................");
+     Log.e("tanglaoban", "SHUAIGE MEINV..................");
 
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-            Log.e("tanglaoban", "DOWN");
-                break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e("tanglaoban", "MOVE");
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e("tanglaoban", "UP");
-                break;
+     switch (event.getAction()) {
+     case MotionEvent.ACTION_DOWN:
+     Log.e("tanglaoban", "DOWN");
+     break;
+     case MotionEvent.ACTION_MOVE:
+     Log.e("tanglaoban", "MOVE");
+     break;
+     case MotionEvent.ACTION_UP:
+     Log.e("tanglaoban", "UP");
+     break;
 
-        }
+     }
 
-        return false;
-    }
+     return false;
+     }**/
 }

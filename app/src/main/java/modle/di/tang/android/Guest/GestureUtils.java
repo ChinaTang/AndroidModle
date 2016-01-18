@@ -1,8 +1,8 @@
 package modle.di.tang.android.Guest;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+        import android.content.Context;
+        import android.util.DisplayMetrics;
+        import android.view.WindowManager;
 
 /**
  * Created by tangdi on 2016/1/11.
