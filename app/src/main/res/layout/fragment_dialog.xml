@@ -4,10 +4,29 @@
     android:layout_height="match_parent">
 
     <Button
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dateDialog"
         android:text="@string/dateDialog"/>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hrtizontal_dialog"
+        android:text="@string/hrtizontaldialog"/>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_dialog"
+        android:text="@string/spinnerdialog"/>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/customer_dialog"
+        android:text="@string/customerdialog"/>
 
 
 </LinearLayout>

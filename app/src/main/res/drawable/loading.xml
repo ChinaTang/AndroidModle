@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+
+    <item
+        android:drawable="@drawable/pic_refresh_wait0"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait1"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait2"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait3"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait4"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait5"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait6"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait7"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait8"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait9"
+        android:duration="100"/>
+    <item
+        android:drawable="@drawable/pic_refresh_wait10"
+        android:duration="100"/>
+
+</animation-list>

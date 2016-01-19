@@ -32,6 +32,14 @@
                 <category android:name="modle.di.tang.category" />
             </intent-filter>
         </activity>
+        <activity android:name="modle.di.tang.android.pageView.PageViewActivity"
+            android:label="@string/pageView">
+            <intent-filter>
+                <action android:name="modle.di.tang.action" />
+
+                <category android:name="modle.di.tang.category" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

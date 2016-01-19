@@ -3,4 +3,8 @@
     <string name="geture">GuestModle</string>
     <string name="dateDialog">DateDialog</string>
     <string name="dialog">DialogModle</string>
+    <string name="pageView">ViewPage</string>
+    <string name="hrtizontaldialog">hrtizontaldialog</string>
+    <string name="spinnerdialog">SpinnerDialog</string>
+    <string name="customerdialog">CustromerDialog</string>
 </resources>

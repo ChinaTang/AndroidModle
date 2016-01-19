@@ -1,6 +1,7 @@
 package modle.di.tang.android.Dialog;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,11 +28,14 @@ public class DialogFragment extends Fragment implements View.OnClickListener{
 
     private static final String TAG = "DialogFragment";
 
-    private Button bn;
+    private Button bn, bn01, bn02, bn03;
+
+    private FragmentManager fm;
 
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
+        fm = getActivity().getSupportFragmentManager();
     }
 
     @Override
@@ -52,7 +56,6 @@ public class DialogFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.dateDialog :
-                FragmentManager fm = getActivity().getSupportFragmentManager();
                 Date date = new Date();
                 Bundle arg = new Bundle();
                 arg.putSerializable("setData", date);
@@ -61,13 +64,37 @@ public class DialogFragment extends Fragment implements View.OnClickListener{
                 fdialog.show(fm, DATE_DIALOG);
                 Log.e(TAG, "onClilck DateDialog");
                 break;
-
+            case R.id.hrtizontal_dialog :
+                Bundle arg1 = new Bundle();
+                arg1.putInt(ProgressDialogFragment.STYLE, ProgressDialogFragment.HORI_DIALOG);
+                ProgressDialogFragment progressDialogFragment1 = ProgressDialogFragment.getInstance(arg1);
+                progressDialogFragment1.show(fm, "hori");
+                progressDialogFragment1.runThread();
+                break;
+            case R.id.spinner_dialog :
+                Bundle arg2 = new Bundle();
+                arg2.putInt(ProgressDialogFragment.STYLE, ProgressDialogFragment.CRICLE_DIALOG);
+                ProgressDialogFragment progressDialogFragment2 = ProgressDialogFragment.getInstance(arg2);
+                progressDialogFragment2.show(fm, "Cricle");
+                break;
+            case R.id.customer_dialog :
+                Bundle arg3 = new Bundle();
+                arg3.putInt(ProgressDialogFragment.STYLE, ProgressDialogFragment.SELF_DIALOG);
+                ProgressDialogFragment progressDialogFragment3 = ProgressDialogFragment.getInstance(arg3);
+                progressDialogFragment3.show(fm, "self");
+                break;
         }
     }
 
     private void initView(View v){
         bn = (Button) v.findViewById(R.id.dateDialog);
         bn.setOnClickListener(this);
+        bn01 = (Button)v.findViewById(R.id.hrtizontal_dialog);
+        bn02 = (Button)v.findViewById(R.id.spinner_dialog);
+        bn03 = (Button)v.findViewById(R.id.customer_dialog);
+        bn01.setOnClickListener(this);
+        bn02.setOnClickListener(this);
+        bn03.setOnClickListener(this);
     }
 
     @Override
